@@ -20,7 +20,7 @@ alias cat='bat'
 # Night light
 # =========================================================
 
-alias night='gammastep -O 4500 &'
+alias night='gammastep -O 2500 &'
 alias day='pkill gammastep'
 
 # =========================================================
