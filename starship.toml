@@ -12,10 +12,11 @@ disabled = false
 format = "[$symbol](#blue) "
 
 [os.symbols]
-Ubuntu = "󰕈"
-Arch   = "󰣇"
+Ubuntu  = "󰕈"
+Artix   = "󰣇"
+Arch    = "󰣇"
 CachyOS = "󰣇"
-Macos  = "󰀵"
+Macos   = ""
 
 [directory]
 format            = "[$path](cyan) "

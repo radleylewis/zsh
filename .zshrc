@@ -34,8 +34,13 @@ setopt NOBEEP
 setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 # =========================================================
-# Smart directory navigation
+# Smart directory navigation & lf
 # =========================================================
+
+if [[ -f ~/.config/lf/icons ]]; then
+  LF_ICONS=$(cat ~/.config/lf/icons | tr '\n' ':')
+  export LF_ICONS
+fi
 
 # Initialize zoxide
 eval "$(zoxide init zsh)"
@@ -67,6 +72,30 @@ if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
   source /opt/homebrew/opt/fzf/shell/completion.zsh
 fi
 
+# macOS / Homebrew (Intel)
+if [[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+# Arch
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+fi
+
+# Ubuntu
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
+# Local Git-cloned fzf
+if [[ -f "$HOME/.fzf/shell/key-bindings.zsh" ]]; then
+  source "$HOME/.fzf/shell/key-bindings.zsh"
+  source "$HOME/.fzf/shell/completion.zsh"
+fi
+
 # =========================================================
 # Modular Config Files
 # =========================================================
@@ -89,3 +118,11 @@ source "$ZDOTDIR/plugins.zsh"
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
 
+
+# =========================================================
+# User Custom Configurations
+# =========================================================
+
+if [[ -f "$ZDOTDIR/local.zsh" ]]; then
+  source "$ZDOTDIR/local.zsh"
+fi
