@@ -27,7 +27,7 @@ alias day='pkill gammastep'
 # Core utilities
 # =========================================================
 
-alias grep='rg --color=auto'
+alias grep='grep --color=auto'  # not aliased to rg: its flags differ (e.g. rg -r is --replace)
 alias diff='diff --color=auto'
 alias df='df -h'
 
@@ -38,6 +38,7 @@ alias df='df -h'
 alias -- -='cd -'  # -- prevents - being parsed as a flag; cd - jumps to previous directory
 
 lf() { # zsh follow lf navigation
+    local tmp dir
     tmp=$(mktemp)
     command lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
