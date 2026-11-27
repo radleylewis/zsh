@@ -23,6 +23,9 @@ zplugin-update() {
   done
 }
 
+# Suggest from history first, then fall back to tab completion (e.g. folders you've
+# never cd'd into). Must be set before the plugin loads.
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 _zplugin_load zsh-users zsh-autosuggestions
 _zplugin_load jeffreytse zsh-vi-mode
 _zplugin_load zdharma-continuum fast-syntax-highlighting
